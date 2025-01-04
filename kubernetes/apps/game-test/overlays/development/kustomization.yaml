@@ -1,0 +1,6 @@
+resources:
+  - ../../base
+  - namespace.yaml
+  - ingress.yaml
+
+namespace: game-test-dev
