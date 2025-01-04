@@ -3,4 +3,4 @@ resources:
   - namespace.yaml
   - ingress.yaml
 
-namespace: game-test-dev
+namespace: game-stack-dev

@@ -1,0 +1,32 @@
+argocd-apps:
+  projects:
+    monitoring-stack:
+      namespace: argocd
+      sourceRepos:
+        - '*'
+      destinations:
+        - namespace: '*'
+          server: https://kubernetes.default.svc
+      clusterResourceWhitelist:
+        - group: '*'
+          kind: '*'
+      orphanedResources:
+        warn: false
+
+  applications:
+    monitoring-stack-app:
+      namespace: argocd
+      project: monitoring-stack
+      source:
+        repoURL: git@github.com:raphaelmulenda/monitoring-stack.git
+        targetRevision: HEAD
+        path: kubernetes/argoproj/
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: argocd
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true
+        automated:
+          prune: true
+          selfHeal: true

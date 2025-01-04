@@ -1,14 +1,14 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: game-2048-ingress
-  namespace: game-test-dev
+  name: game-stack-ingress
+  namespace: game-stack-dev
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: game-2048.local
+  - host: game-stack.local
     http:
       paths:
       - path: /
