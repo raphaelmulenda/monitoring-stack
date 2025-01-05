@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: alertmanager-ingress
+  namespace: monitoring
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: alertmanager.local  # Replace with your desired domain or IP address
+    http:
+      paths:
+      - path: /  # The default path for alertmanager
+        pathType: Prefix
+        backend:
+          service:
+            name: alertmanager-main
+            port:
+              name: web  # Use the 'web' port as defined in your Service
+  - host: alertmanager-reloader.local  
+    http:
+      paths:
+      - path: /  # The default path for alertmanager-reloader
+        pathType: Prefix
+        backend:
+          service:
+            name: alertmanager-main
+            port:
+              name: reloader-web  # Use the 'reloader-web' port as defined in your Service

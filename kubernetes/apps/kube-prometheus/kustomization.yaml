@@ -6,6 +6,7 @@ resources:
 - ./manifests/alertmanager-podDisruptionBudget.yaml
 - ./manifests/alertmanager-prometheusRule.yaml
 - ./manifests/alertmanager-secret.yaml
+- ./manifests/alertmanager-ingress.yaml
 - ./manifests/alertmanager-service.yaml
 - ./manifests/alertmanager-serviceAccount.yaml
 - ./manifests/alertmanager-serviceMonitor.yaml
