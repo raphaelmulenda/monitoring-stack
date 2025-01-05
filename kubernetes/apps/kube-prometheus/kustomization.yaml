@@ -24,6 +24,7 @@ resources:
 - ./manifests/grafana-deployment.yaml
 - ./manifests/grafana-networkPolicy.yaml
 - ./manifests/grafana-prometheusRule.yaml
+- ./manifests/grafana-ingress.yaml
 - ./manifests/grafana-service.yaml
 - ./manifests/grafana-serviceAccount.yaml
 - ./manifests/grafana-serviceMonitor.yaml
