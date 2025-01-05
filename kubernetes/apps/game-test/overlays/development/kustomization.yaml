@@ -1,6 +1,0 @@
-resources:
-  - ../../base
-  - namespace.yaml
-  - ingress.yaml
-
-namespace: game-stack-dev
