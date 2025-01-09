@@ -13,15 +13,19 @@ spec:
                 - appName: eck-operator
                   namespace: elastic-system
                   path: kubernetes/apps/eck-operator
+                  type: helm
                 - appName: eck-stack
                   namespace: elastic-stack
                   path: kubernetes/apps/eck-stack
+                  type: helm
                 - appName: prometheus-operator
                   namespace: monitoring
                   path: kubernetes/apps/kube-prometheus/manifests
+                  type: manifests
                 - appName: prometheus-operator-crds
                   namespace: monitoring
                   path: kubernetes/apps/kube-prometheus/manifests/setup
+                  type: manifests
 
   template:
     metadata:
@@ -33,7 +37,7 @@ spec:
       source:
         repoURL: git@github.com:raphaelmulenda/monitoring-stack.git
         targetRevision: HEAD
-        path: "{{path}}" # Use dynamic path from the list generator
+        path: "{{path}}"
         helm:
           releaseName: "{{appName}}"
           valueFiles:
