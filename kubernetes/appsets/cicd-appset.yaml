@@ -1,0 +1,48 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: main
+spec:
+  generators:
+    # Generator for apps that should deploy to all clusters.
+    - matrix:
+        generators:
+          - clusters: {}
+          - list:
+              elements:
+                - appName: eck-operator
+                  namespace: elastic-system
+                - appName: eck-stack
+                  namespace: elastic-stack
+                - appName: prometheus-operator
+                  namespace: monitoring
+                  path: kubernetes/apps/kube-prometheus/manifests
+                - appName: prometheus-operator-crds
+                  namespace: monitoring
+                  path: kubernetes/apps/kube-prometheus/manifests/setup
+
+  template:
+    metadata:
+      name: "{{appName}}"
+      annotations:
+        argocd.argoproj.io/manifest-generate-paths: ".;.."
+    spec:
+      project: monitoring-stack
+      source:
+        repoURL: git@github.com:raphaelmulenda/monitoring-stack.git
+        targetRevision: HEAD
+        path: "{{path}}" # Use dynamic path for each app
+        helm:
+          releaseName: "{{appName}}"
+          valueFiles:
+            - ../common.values.yaml
+            - values.yaml
+      destination:
+        name: "{{name}}"
+        namespace: "{{namespace}}"
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true

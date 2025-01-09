@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: monitoring-stack-root-app
+  namespace: argocd
+spec:
+  project: monitoring-stack
+  source:
+    repoURL: git@github.com:raphaelmulenda/monitoring-stack.git
+    targetRevision: HEAD
+    path: kubernetes/appsets
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true  
+    automated: 
+      prune: true 
+      selfHeal: true
