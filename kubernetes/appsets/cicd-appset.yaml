@@ -12,6 +12,7 @@ spec:
               elements:
                 - appName: eck-operator
                   namespace: elastic-system
+                  path: kubernetes/apps/{{appName}}
                 - appName: eck-stack
                   namespace: elastic-stack
                   path: kubernetes/apps/{{appName}}
@@ -32,7 +33,7 @@ spec:
       source:
         repoURL: git@github.com:raphaelmulenda/monitoring-stack.git
         targetRevision: HEAD
-        path: kubernetes/apps/{{appName}} # Use dynamic path for each app
+        # path: kubernetes/apps/{{appName}} # Use dynamic path for each app
         helm:
           # releaseName: "{{appName}}"
           valueFiles:
