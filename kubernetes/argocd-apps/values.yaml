@@ -14,13 +14,13 @@ argocd-apps:
         warn: false
 
   applications:
-    monitoring-stack-mngr-app:
+    monitoring-stack-root-app:
       namespace: argocd
       project: monitoring-stack
       source:
         repoURL: git@github.com:raphaelmulenda/monitoring-stack.git
         targetRevision: HEAD
-        path: kubernetes/argocd-root-app/
+        path: kubernetes/argocd-mngr-app/
       destination:
         server: https://kubernetes.default.svc
         namespace: argocd

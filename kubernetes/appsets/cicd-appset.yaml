@@ -35,7 +35,6 @@ spec:
         helm:
           releaseName: "{{appName}}"
           valueFiles:
-            - ../common.values.yaml
             - values.yaml
       destination:
         name: "{{name}}"
