@@ -14,6 +14,7 @@ spec:
                   namespace: elastic-system
                 - appName: eck-stack
                   namespace: elastic-stack
+                  path: kubernetes/apps/{{appName}}
                 - appName: prometheus-operator
                   namespace: monitoring
                   path: kubernetes/apps/kube-prometheus/manifests
@@ -33,7 +34,7 @@ spec:
         targetRevision: HEAD
         path: kubernetes/apps/{{appName}} # Use dynamic path for each app
         helm:
-          releaseName: "{{appName}}"
+          # releaseName: "{{appName}}"
           valueFiles:
             - values.yaml
       destination:
