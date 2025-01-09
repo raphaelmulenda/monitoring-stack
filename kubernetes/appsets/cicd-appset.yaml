@@ -35,7 +35,7 @@ spec:
         targetRevision: HEAD
         path: "{{path}}" # Use dynamic path from the list generator
         helm:
-          # releaseName: "{{appName}}"
+          releaseName: "{{appName}}"
           valueFiles:
             - values.yaml
       destination:
