@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: monitoring-stack-appset
+  name: eck-stack-appset
 spec:
   generators:
     # Generator for apps that should deploy to all clusters.
@@ -18,14 +18,6 @@ spec:
                   namespace: elastic-stack
                   path: kubernetes/apps/eck-stack
                   type: helm
-                - appName: prometheus-operator
-                  namespace: monitoring
-                  path: kubernetes/apps/kube-prometheus/manifests
-                  type: manifests
-                - appName: prometheus-operator-crds
-                  namespace: monitoring
-                  path: kubernetes/apps/kube-prometheus/manifests/setup
-                  type: manifests
 
   template:
     metadata:

@@ -1,0 +1,41 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: prometheus-stack-appset
+spec:
+  generators:
+    # Generator for apps that should deploy to all clusters.
+    - matrix:
+        generators:
+          - clusters: {}
+          - list:
+              elements:
+                - appName: prometheus-operator
+                  namespace: monitoring
+                  path: kubernetes/apps/kube-prometheus/manifests
+                  type: manifests
+                - appName: prometheus-operator-crds
+                  namespace: monitoring
+                  path: kubernetes/apps/kube-prometheus/manifests/setup
+                  type: manifests
+
+  template:
+    metadata:
+      name: "{{appName}}"
+      annotations:
+        argocd.argoproj.io/manifest-generate-paths: ".;.."
+    spec:
+      project: monitoring-stack
+      source:
+        repoURL: git@github.com:raphaelmulenda/monitoring-stack.git
+        targetRevision: HEAD
+        path: "{{path}}"
+      destination:
+        name: "{{name}}"
+        namespace: "{{namespace}}"
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
