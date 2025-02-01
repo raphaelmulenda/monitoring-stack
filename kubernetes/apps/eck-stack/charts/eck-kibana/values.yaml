@@ -117,16 +117,16 @@ monitoring: {}
 # - Nginx: https://kubernetes.github.io/ingress-nginx/
 #
 ingress:
-  enabled: false
+  enabled: true
 
   # Annotations that will be applied to the Ingress resource. Note that some ingress controllers are controlled via annotations.
   #
   # Nginx Annotations: https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/
   #
-  # Common annotations:
+  Common annotations:
   #   kubernetes.io/ingress.class: gce          # Configures the Ingress resource to use the GCE ingress controller and create an external Application Load Balancer.
   #   kubernetes.io/ingress.class: gce-internal # Configures the Ingress resource to use the GCE ingress controller and create an internal Application Load Balancer.
-  #   kubernetes.io/ingress.class: nginx        # Configures the Ingress resource to use the NGINX ingress controller.
+    kubernetes.io/ingress.class: nginx        # Configures the Ingress resource to use the NGINX ingress controller.
   #
   annotations: {}
 
@@ -156,7 +156,7 @@ ingress:
   # ref: https://kubernetes.io/docs/concepts/services-networking/ingress/#name-based-virtual-hosting
   #
   hosts:
-    - host: chart-example.local
+    - host: kibana.local
       path: /
 
   # TLS defines whether TLS will be enabled on the Ingress resource.
