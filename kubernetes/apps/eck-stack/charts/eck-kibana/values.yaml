@@ -128,8 +128,10 @@ ingress:
   #   kubernetes.io/ingress.class: gce-internal # Configures the Ingress resource to use the GCE ingress controller and create an internal Application Load Balancer.
     kubernetes.io/ingress.class: nginx        # Configures the Ingress resource to use the NGINX ingress controller.
   #
-  annotations: {}
-
+  # annotations: {}
+  annotations:
+   kubernetes.io/ingress.class: nginx #added by me RFM 
+   
   # Labels that will be applied to the Ingress resource.
   #
   labels: {}
@@ -139,6 +141,8 @@ ingress:
   #
   # className: webapprouting.kubernetes.azure.com | alb
 
+  ingressClassName: ~ #added by me RFM 
+  
   # Ingress paths are required to have a corresponding path type. Defaults to 'Prefix'.
   #
   # There are 3 supported path types:
