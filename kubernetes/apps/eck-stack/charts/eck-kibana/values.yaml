@@ -91,7 +91,7 @@ secureSettings: []
 # Settings for configuring stack monitoring.
 # ref: https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-stack-monitoring.html
 #
-monitoring: {}
+monitoring: 
   # metrics:
   #   elasticsearchRefs:
   #   - name: monitoring
@@ -100,6 +100,10 @@ monitoring: {}
   #   elasticsearchRefs:
   #   - name: monitoring
   #     namespace: observability
+  metrics:
+    elasticsearchRefs:
+      - name: elasticsearch-es-default
+        namespace: elastic-stack
 
 # Settings for controlling Kibana ingress. Enabling ingress will expose your Kibana instance
 # to the public internet, and as such is disabled by default.
