@@ -142,7 +142,7 @@ ingress:
   #
   # className: webapprouting.kubernetes.azure.com | alb
 
-  ingressClassName: ~ #added by me RFM 
+  ingressClassName: alb #added by me RFM 
   
   # Ingress paths are required to have a corresponding path type. Defaults to 'Prefix'.
   #
