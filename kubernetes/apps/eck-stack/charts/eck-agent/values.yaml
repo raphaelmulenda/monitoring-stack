@@ -107,7 +107,7 @@ fleetServerEnabled: false
 # http:
 
 # policyID determines into which Agent Policy this Agent will be enrolled.
-# policyID: eck-agent
+policyID: eck-agent
   
 # DaemonSet, StatefulSet, or Deployment specification for Agent.
 # At least one is required of [daemonSet, deployment, statefulSet].
