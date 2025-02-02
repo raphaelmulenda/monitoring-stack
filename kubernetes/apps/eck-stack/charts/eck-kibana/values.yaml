@@ -100,14 +100,14 @@ monitoring:
   #   elasticsearchRefs:
   #   - name: monitoring
   #     namespace: observability
-  metrics:
-    elasticsearchRefs:
-      - name: elasticsearch-es-default-0
-        namespace: elastic-stack
-  logs:
-    elasticsearchRefs:
-      - name: elasticsearch-es-default-0
-        namespace: elastic-stack
+  # metrics:
+  #   elasticsearchRefs:
+  #     - name: elasticsearch-es-default-0
+  #       namespace: elastic-stack
+  # logs:
+  #   elasticsearchRefs:
+  #     - name: elasticsearch-es-default-0
+  #       namespace: elastic-stack
 
 # Settings for controlling Kibana ingress. Enabling ingress will expose your Kibana instance
 # to the public internet, and as such is disabled by default.
