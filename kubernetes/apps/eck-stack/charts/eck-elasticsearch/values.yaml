@@ -40,15 +40,19 @@ auth: {}
 # Settings for configuring stack monitoring.
 # ref: https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-stack-monitoring.html
 #
-monitoring: {}
+monitoring: 
   # metrics:
   #   elasticsearchRefs:
   #   - name: monitoring
-  #     namespace: observability
+  #     namespace: observabilit
   # logs:
   #   elasticsearchRefs:
   #   - name: monitoring
   #     namespace: observability
+  metrics:
+    elasticsearchRefs:
+      - name: elasticsearch-es-default
+        namespace: elastic-stack
 
 # Control the Elasticsearch transport module used for internal communication between nodes.
 # ref: https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-transport-settings.html
