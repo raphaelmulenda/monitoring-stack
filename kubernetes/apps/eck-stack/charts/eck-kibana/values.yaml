@@ -104,6 +104,10 @@ monitoring:
     elasticsearchRefs:
       - name: elasticsearch-es-default
         namespace: elastic-stack
+  logs:
+    elasticsearchRefs:
+      - name: elasticsearch-es-default
+        namespace: elastic-stack
 
 # Settings for controlling Kibana ingress. Enabling ingress will expose your Kibana instance
 # to the public internet, and as such is disabled by default.
