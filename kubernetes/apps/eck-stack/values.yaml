@@ -32,7 +32,7 @@ eck-fleet-server:
 # If enabled, will use the eck-beats chart and deploy a Beats resource.
 #
 eck-beats:
-  enabled: true
+  enabled: false
 
 # If enabled, will use the eck-logstash chart and deploy a Logstash resource.
 #
