@@ -182,4 +182,4 @@ ingress:
     # Optional Kubernetes secret name that contains a base64 encoded PEM certificate and private key that corresponds to the above 'hosts' definitions.
     # If tls is enabled, but this field is not set, the self-signed certificate and key created by the ECK operator will be used.
     # secretName: chart-example-tls
-    secretName: eck-stack-eck-kibana-kb-http-certs-internal
+    # secretName: eck-stack-eck-kibana-kb-http-certs-internal
