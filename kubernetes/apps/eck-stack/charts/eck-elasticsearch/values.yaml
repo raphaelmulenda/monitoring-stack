@@ -51,11 +51,11 @@ monitoring:
   #     namespace: observability
   metrics:
     elasticsearchRefs:
-      - name: elasticsearch-es-default
+      - name: elasticsearch-es-default-0
         namespace: elastic-stack
   logs:
     elasticsearchRefs:
-      - name: elasticsearch-es-default
+      - name: elasticsearch-es-default-0
         namespace: elastic-stack
 
 # Control the Elasticsearch transport module used for internal communication between nodes.
