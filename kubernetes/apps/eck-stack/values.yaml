@@ -22,22 +22,22 @@ eck-kibana:
 # If enabled, will use the eck-agent chart and deploy an Elastic Agent instance.
 #
 eck-agent:
-  enabled: false
+  enabled: true
 
 # If enabled, will use the eck-fleet-server chart and deploy a Fleet Server resource.
 #
 eck-fleet-server:
-  enabled: false
+  enabled: true
 
 # If enabled, will use the eck-beats chart and deploy a Beats resource.
 #
 eck-beats:
-  enabled: false
+  enabled: true
 
 # If enabled, will use the eck-logstash chart and deploy a Logstash resource.
 #
 eck-logstash:
-  enabled: false
+  enabled: true
 
 # If enabled, will use the eck-apm-server chart and deploy a standalone APM Server resource.
 #
